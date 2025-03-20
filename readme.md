@@ -1,15 +1,70 @@
-# Code Challenge: Categorização
+## Code Challenge: Categorização - Solução Completa
 
-## Contexto
+### Descrição
+
+#### Este repositório contém a solução para o desafio de categorização de produtos de supermercado. O objetivo foi criar um algoritmo inteligente capaz de identificar e agrupar produtos semelhantes, mesmo com pequenas variações nos seus nomes ou descrições. A solução foi desenvolvida utilizando `Node.js`.
+
+#### Como o código Funciona?
+
+- `Passo 1`: **Função de Normalização do Título**
+
+  - O algoritmo começa com a normalização dos títulos dos produtos. Essa etapa transforma os títulos para minúsculas e organiza as palavras em ordem alfabética, para garantir que variações na ordem das palavras ou diferenças de capitalização não impactem a categorização.
+
+- `Passo 2`: **Função de Identificação de Categorias**
+
+  - A função findCategory compara o título normalizado de um produto com os títulos normalizados já categorizados. Caso o produto pertença a uma categoria existente, ele será adicionado à categoria correspondente.
+
+- `Passo 3`: **Função de Classificação de Produtos**
+  - Os produtos são analisados e classificados em categorias. A função productClassifier percorre a lista de produtos e agrupa aqueles que pertencem à mesma categoria, considerando as variações de título.
+
+## Como executar:
+
+`Requisitos`: Node.js
+
+### Instruções:
+
+1. Clone o repositório para sua máquina local:
+
+```
+git clone <link-do-repositório>
+```
+
+2. Acesse a pasta do projeto:
+
+```
+cd <nome-do-repositório>
+```
+
+3. Descomente o `console.log(result);` na linha 52 no arquivo `classifiedProduct.js`.
+
+4. Execute o script para classificar os produtos:
+
+```
+node classifiedProduct.js
+```
+
+5. **O resultado será impresso no terminal, contendo as categorias e seus respectivos produtos**.
+
+#
+
+### Readme Original do Desafio...
+
+## Code Challenge: Categorização
+
+### Contexto
+
 Você está desenvolvendo um sistema para um comparador de preços que precisa identificar quando diferentes supermercados vendem o mesmo produto, mesmo quando os nomes têm pequenas variações.
 
-## Objetivo
+### Objetivo
+
 Desenvolver um algoritmo inteligente que categorize produtos de supermercado.
 
 1. **Produtos equivalentes de diferentes supermercados, mesmo com variações na descrição**
+
    - Exemplo: "Arroz Branco Tio João 5kg" e "Arroz Tio João Branco 5kg" são o mesmo produto.
 
 2. **Produtos similares mas distintos**
+
    - Exemplo: "Arroz Branco Tio João 5kg" e "Arroz Integral Tio João 5kg" são produtos diferentes.
 
 3. **Produtos com tamanhos/quantidades diferentes**
@@ -26,8 +81,8 @@ Desenvolver um algoritmo inteligente que categorize produtos de supermercado.
   - Ordem das palavras trocadas.
   - Pequenas variações de descrição.
   - Diferenças de capitalização.
-  
 - A função deve separar produtos com:
+
   - Tipos diferentes (integral vs. desnatado).
   - Marcas diferentes (Italac vs. Piracanjuba).
   - Tamanhos/quantidades diferentes (1L vs. 2L).
@@ -37,92 +92,92 @@ Desenvolver um algoritmo inteligente que categorize produtos de supermercado.
   - Contagem de produtos.
   - Lista de produtos na categoria.
 
-
-
 ## Exemplo
 
 ### Entrada
+
 ```json
 [
   {
     "id": 1,
     "title": "Leite Integral Piracanjuba 1L",
-    "supermarket": "Supermercado A",
+    "supermarket": "Supermercado A"
   },
   {
     "id": 2,
     "title": "Leite Piracanjuba Integral 1L",
-    "supermarket": "Supermercado B",
+    "supermarket": "Supermercado B"
   },
   {
     "id": 3,
     "title": "Leite Integral Italac 1L",
-    "supermarket": "Supermercado A",
+    "supermarket": "Supermercado A"
   },
   {
     "id": 4,
     "title": "Leite Italac Integral 1L",
-    "supermarket": "Supermercado C",
+    "supermarket": "Supermercado C"
   },
   {
     "id": 5,
     "title": "Leite Parmalat Integral 1L",
-    "supermarket": "Supermercado D",
+    "supermarket": "Supermercado D"
   },
   {
     "id": 6,
     "title": "Leite Desnatado Piracanjuba 1L",
-    "supermarket": "Supermercado A",
+    "supermarket": "Supermercado A"
   },
   {
     "id": 7,
     "title": "Piracanjuba Leite Desnatado 1L",
-    "supermarket": "Supermercado B",
+    "supermarket": "Supermercado B"
   },
   {
     "id": 8,
     "title": "Leite Semi-Desnatado Piracanjuba 1L",
-    "supermarket": "Supermercado A",
+    "supermarket": "Supermercado A"
   },
   {
     "id": 9,
     "title": "Leite Piracanjuba Semi Desnatado 1 Litro",
-    "supermarket": "Supermercado C",
+    "supermarket": "Supermercado C"
   },
   {
     "id": 10,
     "title": "Arroz Branco Tio João 5kg",
-    "supermarket": "Supermercado A",
+    "supermarket": "Supermercado A"
   },
   {
     "id": 11,
     "title": "Arroz Tio João Branco 5kg",
-    "supermarket": "Supermercado B",
+    "supermarket": "Supermercado B"
   },
   {
     "id": 12,
     "title": "Arroz Tio João Integral 5kg",
-    "supermarket": "Supermercado A",
+    "supermarket": "Supermercado A"
   },
   {
     "id": 13,
     "title": "Feijão Carioca Camil 1kg",
-    "supermarket": "Supermercado A",
+    "supermarket": "Supermercado A"
   },
   {
     "id": 14,
     "title": "Feijão Camil Tipo Carioca 1kg",
-    "supermarket": "Supermercado C",
+    "supermarket": "Supermercado C"
   },
   {
     "id": 15,
     "title": "Feijao Carioca Camil 1 Quilo",
-    "supermarket": "Supermercado D",
+    "supermarket": "Supermercado D"
   }
 ]
 ```
 
 ## Saída Esperada
+
 ```json
 [
   {
@@ -243,5 +298,3 @@ Após conclusão enviar link do seu repo e info para o google [Forms](https://do
 - Maior pontuação
 - Melhor entendimento do código
 - Entrega mais rapida
-
-
