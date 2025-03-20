@@ -46,7 +46,7 @@ const productClassifier = (productsList) => {
   return categories;
 };
 
-// Caso queira ver o resultado, basta descomentar o console.log() abaixo:
-// E rodar no terminal: node classifiedProduct.js
+// If you want to see the result, just uncomment the console.log() below:
+// And run in the terminal: node classifiedProduct.js
 const result = productClassifier(data);
 // console.log(result);
